@@ -28,7 +28,6 @@ print "---------------------"
 
 for i in xrange(1, len(price), 7):
     try:
-        print 'i is now ', i
         last_price = float(price[i+9].contents[0].encode('utf-8'))
         cur_price = float(price[i+2].contents[0].encode('utf-8'))
         change = cur_price - last_price
