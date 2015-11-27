@@ -24,48 +24,43 @@ change = cur_price - last_price
 """
 print "Fetched price from CPF"
 print "---------------------"
-j = 1
 
-for i in price:
-    if j > len(price):
-            print "END OF LIST"
-            quit()  
+
+for i in xrange(1, len(price), 7):
     try:
-        print "สัปดาห์ที่ : ",price[j].contents[0]
-        j += 1 
-        print "วันที่ :" ,price[j].contents[0]
-        j += 1
-        print bcolors.BOLD + "ราคา :" , price[j].contents[0] + bcolors.ENDC
-        j += 1
+        print 'i is now ', i
+        last_price = float(price[i+9].contents[0].encode('utf-8'))
+        cur_price = float(price[i+2].contents[0].encode('utf-8'))
+        change = cur_price - last_price
+        print "สัปดาห์ที่ : ",price[i].contents[0]
+        print "วันที่ :" ,price[i+1].contents[0]
+        print bcolors.BOLD + "ราคา :" , price[i+2].contents[0] + bcolors.ENDC
+        if change > 0:
+            txt = bcolors.OKGREEN + 'เพิ่มขึ้น' 
+        elif change < 0:
+            txt = bcolors.FAIL + 'ลดลง'
+        else:
+            txt = 'คงที่'
+        print txt + " : %.2f" %change  + bcolors.ENDC
         print "---------------------"
     except IndexError:
-        j += 4
+        print "End of list"
 
 """
-# This for week, day and price print
-j = 1
-for i in price:
-...  try:
-...   print price[j].contents[0]
-...   j += 1
-...  except IndexError:
-...   j += 4
-
-# for day and price only change j = 2, except j += 5
-# for only day set j = 2 step j += 7
-# more elegance way to get day
+ Get date by
  for i in range(2, len(price), 7):
 ...  print price[i].contents[0]
 
 append to array day.append(price[i].contents[0].encode('utf-8'))
 
-# elegance way to get price
+# Get price by
  for i in range(3, len(price), 7):
  ...  print price[i].contents[0]
 
 append to array prices.append(float(price[i].contents[0].encode('utf-8')))
 
 AND reverse() on both array
+*** IF NOT REVERSE LOOP ONLY!!!
 """
 
 
