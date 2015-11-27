@@ -16,12 +16,12 @@ html = urllib.urlopen(url).read()
 soup = BeautifulSoup(html)
 price = soup.findAll("td", { "class" : "price_product" } )
 
-"""
+'''
 # Calculate price changed
 last_price = float(price[10].contents[0].encode('utf-8'))
 cur_price = float(price[3].contents[0].encode('utf-8'))
 change = cur_price - last_price
-"""
+'''
 print "Fetched price from CPF"
 print "---------------------"
 
@@ -45,7 +45,7 @@ for i in xrange(1, len(price), 7):
     except IndexError:
         print "End of list"
 
-"""
+'''
  Get date by
  for i in range(2, len(price), 7):
 ...  print price[i].contents[0]
@@ -60,7 +60,7 @@ append to array prices.append(float(price[i].contents[0].encode('utf-8')))
 
 AND reverse() on both array
 *** IF NOT REVERSE LOOP ONLY!!!
-"""
+'''
 
 
 
