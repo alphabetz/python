@@ -20,6 +20,3 @@ else:
 gross_pay = 40 * r + extra_pay
 
 print gross_pay
-
-
-
