@@ -16,5 +16,5 @@ while True:
         bcolors.ENDC 
         print  bcolors.OKGREEN + "Total is now %d" %total + bcolors.ENDC
     except ValueError:
-        print bcolors.OKGREEN + "Total %d" %total + bcolors.ENDC
+        print bcolors.OKGREEN + "Total %d" %total+ bcolors.ENDC
         quit()
